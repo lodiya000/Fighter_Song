@@ -2,13 +2,6 @@ fileFormatVersion: 2
 guid: 383afa9ae798a0c4eb2fb43e0a84b66b
 labels:
 - Animation
-AssetOrigin:
-  serializedVersion: 1
-  productId: 326043
-  packageName: Human Spellcasting Animations FREE
-  packageVersion: 1.0
-  assetPath: Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01-Idle02.fbx
-  uploadId: 771492
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -25,6 +18,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -40,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: "\u73A9\u5BB6_\u5F85\u6A5F_1_2"
+      name: HumanF@Idle01-Idle02
       takeName: Untitled
       internalID: 3094330708855449807
       firstFrame: 0
@@ -960,7 +955,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1841c298173cdad4db8df8602c8f1c8d, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1841c298173cdad4db8df8602c8f1c8d,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
@@ -972,3 +968,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 326043
+  packageName: Human Spellcasting Animations FREE
+  packageVersion: 1.0
+  assetPath: "Assets/\u7D20\u6750/\u52D5\u756B/Animations/\u52D5\u4F5C/Idles/HumanF@Idle01-Idle02.fbx"
+  uploadId: 771492
