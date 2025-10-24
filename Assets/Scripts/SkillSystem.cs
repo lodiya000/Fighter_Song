@@ -20,6 +20,8 @@ public class SkillSystem : MonoBehaviour
 
     [SerializeField]
     private Transform[] baseAttatkPoint;
+    [SerializeField]
+    private Transform skillAssignPoint;
 
     #region 技能預置物
     [SerializeField]
@@ -69,8 +71,8 @@ public class SkillSystem : MonoBehaviour
                 }
                 else if (spell.z == 2)
                 {
-                    Transform p = GameObject.Find("Skeleton").transform;
-                    Instantiate(flame, p.position, Quaternion.identity);
+                    //Transform p = GameObject.Find("Skeleton").transform;
+                    Instantiate(flame, skillAssignPoint.position, Quaternion.identity);
                 }
                 else if (spell.z == 3)
                 {
@@ -89,8 +91,8 @@ public class SkillSystem : MonoBehaviour
                 }
                 else if (spell.z == 3)
                 {
-                    Transform p = GameObject.Find("Skeleton").transform;
-                    Instantiate(fireStorm, p.position, Quaternion.identity);
+                    //Transform p = GameObject.Find("Skeleton").transform;
+                    Instantiate(fireStorm, skillAssignPoint.position, Quaternion.identity);
                 }
             }
         }
@@ -123,8 +125,8 @@ public class SkillSystem : MonoBehaviour
                 }
                 else if (spell.z == 3)
                 {
-                    Transform p = GameObject.Find("Skeleton").transform;
-                    Instantiate(waterImpact, p.position, Quaternion.identity);
+                    //Transform p = GameObject.Find("Skeleton").transform;
+                    Instantiate(waterImpact, skillAssignPoint.position, Quaternion.identity);
                 }
             }
             else if (spell.y == 3)
@@ -135,8 +137,8 @@ public class SkillSystem : MonoBehaviour
                 }
                 else if (spell.z == 2)
                 {
-                    Transform p = GameObject.Find("Skeleton").transform;
-                    Instantiate(bubbleBurst, p.position, Quaternion.identity);
+                    //Transform p = GameObject.Find("Skeleton").transform;
+                    Instantiate(bubbleBurst, skillAssignPoint.position, Quaternion.identity);
                 }
                 else if (spell.z == 3)
                 {
@@ -180,8 +182,8 @@ public class SkillSystem : MonoBehaviour
             {
                 if (spell.z == 1)
                 {
-                    Transform p = GameObject.Find("Skeleton").transform;
-                    Instantiate(thunder, p.position, Quaternion.identity);
+                    //Transform p = GameObject.Find("Skeleton").transform;
+                    Instantiate(thunder, skillAssignPoint.position, Quaternion.identity);
                 }
                 else if (spell.z == 2)
                 {

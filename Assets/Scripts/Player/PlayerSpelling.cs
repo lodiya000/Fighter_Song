@@ -50,6 +50,7 @@ namespace Lodiya
         {
 
             //if(s1 = null) return;
+            player.HideSkillAssignPoint();
 
             if (s1 != null)
             {

@@ -22,12 +22,20 @@ namespace Lodiya
         public override void Exit()
         {
             base.Exit();
+            player.HideSkillAssignPoint();
         }
 
         public override void Update()
         {
+            if (spell == new Vector3(1, 2, 2) || spell == new Vector3(1, 2, 3) || spell == new Vector3(2, 2, 3) || spell == new Vector3(2, 3, 2) || spell == new Vector3(3, 3, 1))
+            {
+               player.ShowSkillAssignPoint();
+            }
+
+
             base.Update();
-            
+
+
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 skillSystem.SkillCast(spell);

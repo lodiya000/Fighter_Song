@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.Cinemachine;
+using UnityEngine;
 
 namespace Lodiya
 {
@@ -62,13 +63,18 @@ namespace Lodiya
 
         #region 技能指定位置
         [Header("技能指定位置")]
-        [SerializeField]
-        private GameObject skillAssignPoint;
-        [SerializeField,Range(0,10)]
+        [SerializeField,Range(0,50)]
         private float skillAssignPointLength = 10;
         [SerializeField]
         private Transform skillAssignPointOriginal;
+        [SerializeField]
+        private ParticleSystem psSkillAssignPoint;
+        [SerializeField]
+        private LayerMask skillAssignPointLayer;
         #endregion
+
+        [SerializeField]
+        private CinemachineRotationComposer cameraPoint;
 
         private void OnDrawGizmos()
         {
@@ -117,7 +123,6 @@ namespace Lodiya
         protected override void Update()
         {
             base.Update();
-
             //Log.Text(IsGroung());
         }
 
@@ -150,6 +155,28 @@ namespace Lodiya
             SkillSystem.instance.SpawnBasicAttatk(index);
         }
 
+        public void ShowSkillAssignPoint()
+        {
+            cameraPoint.TargetOffset = new(0.4f, 0.2f, 0);
+
+            if (!psSkillAssignPoint.isPlaying) psSkillAssignPoint.Play();
+
+            RaycastHit hit;
+            Physics.Raycast(skillAssignPointOriginal.position, 
+                skillAssignPointOriginal.forward, 
+                out hit, skillAssignPointLength, skillAssignPointLayer);
+            if (hit.collider != null) psSkillAssignPoint.transform.position = hit.point;
+            else psSkillAssignPoint.transform.position =
+                    skillAssignPointOriginal.position +
+                    skillAssignPointOriginal.forward * skillAssignPointLength;
+        }
+
+        public void HideSkillAssignPoint()
+        {
+            cameraPoint.TargetOffset = new(0, 0, 0);
+
+            psSkillAssignPoint.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
 
     }
 }
