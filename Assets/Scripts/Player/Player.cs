@@ -61,12 +61,14 @@ namespace Lodiya
 
         #region 技能指定位置
         [Header("技能指定位置")]
-        [SerializeField]
-        private GameObject prefabSkillAssignPoint;
-        [SerializeField, Range(0, 10)]
+        [SerializeField, Range(0, 50)]
         private float skillAssignPointLength = 5;
         [SerializeField]
         private Transform skillAssignPointOriginal;
+        [SerializeField]
+        private ParticleSystem psSkillAssignPoint;
+        [SerializeField]
+        private LayerMask skillAssignPointLayer;
         #endregion
 
         private void OnDrawGizmos()
@@ -120,8 +122,37 @@ namespace Lodiya
         protected override void Update()
         {
             base.Update();
+        }
 
-            //Log.Text(IsGroung());
+        /// <summary>
+        /// 顯示技能指定位置
+        /// </summary>
+        public void ShowSkillAssignPoint()
+        {
+            // 如果 技能指定位置 特效 還沒播放 就播放
+            if (!psSkillAssignPoint.isPlaying) psSkillAssignPoint.Play();
+
+            // 射線
+            RaycastHit hit;
+            Physics.Raycast(skillAssignPointOriginal.position,
+                    skillAssignPointOriginal.forward,
+                    out hit, skillAssignPointLength, skillAssignPointLayer);
+
+            // 如果 射線 有打到物件 就將 技能指定位置 設定在 打到物件的點上方
+            if (hit.collider != null) psSkillAssignPoint.transform.position = hit.point;
+            // 否則 沒打到物件 就將 技能指定位置 設定在 射線最後
+            else 
+                psSkillAssignPoint.transform.position = 
+                    skillAssignPointOriginal.position + 
+                    skillAssignPointOriginal.forward * skillAssignPointLength;
+        }
+
+        /// <summary>
+        /// 隱藏技能指定位置
+        /// </summary>
+        public void HideSkillAssignPoint()
+        {
+            psSkillAssignPoint.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
 
         public bool IsGroung()

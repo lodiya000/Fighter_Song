@@ -33,7 +33,6 @@ namespace Lodiya
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 Reset();           
-
                 stateMachine.SwitchState(player.playerStage_1st);
             }
 
@@ -70,7 +69,7 @@ namespace Lodiya
             }
 
             spell = new Vector3(0, 0, 0);
-
+            player.HideSkillAssignPoint();
             Debug.Log("重置符文");
         }
     }

@@ -26,6 +26,7 @@ namespace Lodiya
 
         public override void Update()
         {
+            player.ShowSkillAssignPoint();
             base.Update();
             
             if(Input.GetKeyDown(KeyCode.Mouse0))
@@ -47,7 +48,6 @@ namespace Lodiya
                     player.ani.SetFloat("攻擊類型", 5);
                     player.ani.SetTrigger("詠唱攻擊");
                 }
-
 
                 stateMachine.SwitchState(player.playerStage_1st);
             }
