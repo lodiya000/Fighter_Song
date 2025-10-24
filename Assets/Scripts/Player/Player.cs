@@ -60,7 +60,15 @@ namespace Lodiya
         public ParticleSystem s3_fire, s3_wind, s3_ice;
         #endregion
 
-
+        #region 技能指定位置
+        [Header("技能指定位置")]
+        [SerializeField]
+        private GameObject skillAssignPoint;
+        [SerializeField,Range(0,10)]
+        private float skillAssignPointLength = 10;
+        [SerializeField]
+        private Transform skillAssignPointOriginal;
+        #endregion
 
         private void OnDrawGizmos()
         {
@@ -68,6 +76,9 @@ namespace Lodiya
 
             Gizmos.DrawSphere(
                 transform.position + Vector3.up * cheakGroundOffest, cheakGroundRadius );
+
+            Gizmos.color = new Color(0.5f, 0.5f, 1);
+            Gizmos.DrawRay(skillAssignPointOriginal.position, skillAssignPointOriginal.forward * skillAssignPointLength);
         }
 
         protected override void Awake()
@@ -129,5 +140,16 @@ namespace Lodiya
         {
 
         }
+
+        /// <summary>
+        /// 生成基礎攻擊
+        /// </summary>
+        /// <param name="index">基礎攻擊段數 0左手 1右手 2雙手</param>
+        private void SpawnBasicAttatk(int index)
+        {
+            SkillSystem.instance.SpawnBasicAttatk(index);
+        }
+
+
     }
 }

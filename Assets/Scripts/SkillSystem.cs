@@ -3,9 +3,23 @@ using UnityEngine;
 
 public class SkillSystem : MonoBehaviour
 {
-    [SerializeField]
+    private static SkillSystem _instance;
+    public static SkillSystem instance
+    {
+        get
+        {
+            if (_instance == null) _instance = FindAnyObjectByType<SkillSystem>();
+
+            return _instance;
+        }
+    }
+
+[SerializeField]
     private Transform player;
     private Vector3 result;
+
+    [SerializeField]
+    private Transform[] baseAttatkPoint;
 
     #region 技能預置物
     [SerializeField]
@@ -193,5 +207,21 @@ public class SkillSystem : MonoBehaviour
         result.y = 0;
 
         Instantiate(thunder, result, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// 生成基礎攻擊
+    /// </summary>
+    /// <param name="index">基礎攻擊段數 0左手 1右手 2雙手</param>
+    public void SpawnBasicAttatk(int index)
+    {
+        if(index < 2)
+        {
+            Instantiate(fireBall_Small, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+        }
+        else if(index == 2) 
+        {
+            Instantiate(fireBall_Large, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+        }
     }
 }
