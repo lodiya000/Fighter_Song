@@ -3,9 +3,26 @@ using UnityEngine;
 
 public class SkillSystem : MonoBehaviour
 {
+    private static SkillSystem _instance;
+
+    public static SkillSystem instance
+    {
+        get
+        {
+            if (_instance == null) _instance = FindAnyObjectByType<SkillSystem>();
+            return _instance;
+        }
+    }
+
     [SerializeField]
     private Transform player;
     private Vector3 result;
+
+    /// <summary>
+    /// 基礎攻擊：火球生成點 - 左、右與雙手
+    /// </summary>
+    [SerializeField]
+    private Transform[] basicFireSmallBallPoints;
 
     #region 技能預置物
     [SerializeField]
@@ -193,5 +210,16 @@ public class SkillSystem : MonoBehaviour
         result.y = 0;
 
         Instantiate(thunder, result, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// 生成基礎火球
+    /// </summary>
+    /// <param name="index">基礎攻擊段數：0 左手、1 右手、2 雙手</param>
+    public void SpawnBasicFireSmallBall(int index)
+    {
+        Instantiate(fireBall_Small, 
+            basicFireSmallBallPoints[index].position, 
+            basicFireSmallBallPoints[index].rotation);
     }
 }

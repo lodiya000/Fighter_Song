@@ -20,13 +20,12 @@ namespace Lodiya
         }
         #endregion
 
-
+        #region 基本資料
         public const string m_name = "玩家";
         public static LayerMask m_layer = 1 << 7;
 
         [SerializeField, Range(5, 20), Tooltip("攝影機軟轉速度")]
         public float turnSpeed = 10;
-
 
         [Header("檢查資料")]
         [SerializeField, Range(-10, 10)]
@@ -35,9 +34,9 @@ namespace Lodiya
         private float cheakGroundOffest;
         [SerializeField]
         private LayerMask layerCanJump;
-        
 
         private Transform traCamera;
+        #endregion
 
         #region 狀態機與狀態
         public PlayerIdle playerIdle { get; private set; }
@@ -50,7 +49,7 @@ namespace Lodiya
         public PlayerStage_3rd playerStage_3rd { get; private set; }
         public PlayerStage_Cast playerStage_Cast { get; private set; }
         #endregion
- 
+
         #region 魔法環
         [SerializeField]
         public ParticleSystem s1_fire, s1_wind, s1_ice;
@@ -60,14 +59,29 @@ namespace Lodiya
         public ParticleSystem s3_fire, s3_wind, s3_ice;
         #endregion
 
-
+        #region 技能指定位置
+        [Header("技能指定位置")]
+        [SerializeField]
+        private GameObject prefabSkillAssignPoint;
+        [SerializeField, Range(0, 10)]
+        private float skillAssignPointLength = 5;
+        [SerializeField]
+        private Transform skillAssignPointOriginal;
+        #endregion
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-
             Gizmos.DrawSphere(
-                transform.position + Vector3.up * cheakGroundOffest, cheakGroundRadius );
+                transform.position + Vector3.up * cheakGroundOffest, cheakGroundRadius);
+
+            // 繪製技能指定位置
+            if (skillAssignPointOriginal != null)
+            {
+                Gizmos.color = new Color(0.5f, 0.5f, 1);
+                Gizmos.DrawRay(skillAssignPointOriginal.position,
+                    skillAssignPointOriginal.forward * skillAssignPointLength);
+            }
         }
 
         protected override void Awake()
@@ -113,8 +127,8 @@ namespace Lodiya
         public bool IsGroung()
         {
             return Physics.OverlapSphere(
-                transform.position + Vector3.up * cheakGroundOffest, 
-                cheakGroundRadius, 
+                transform.position + Vector3.up * cheakGroundOffest,
+                cheakGroundRadius,
                 layerCanJump).Length > 0;
         }
 
@@ -128,6 +142,15 @@ namespace Lodiya
         public void Splling(string skil)
         {
 
+        }
+
+        /// <summary>
+        /// 生成基礎火球
+        /// </summary>
+        /// <param name="index">基礎攻擊段數：0 左手、1 右手、2 雙手</param>
+        private void SpawnBasicFireSmallBall(int index)
+        {
+            SkillSystem.instance.SpawnBasicFireSmallBall(index);
         }
     }
 }

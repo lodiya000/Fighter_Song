@@ -48,24 +48,23 @@ namespace Lodiya
 
         protected void Reset()
         {
-
             //if(s1 = null) return;
 
             if (s1 != null)
             {
-                s1.Stop();
+                s1.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 s1 = null;
                 Debug.Log($"重置s1: {s1}");
             }
             if (s2 != null)
             {
-                s2.Stop();
+                s2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 s2 = null;
                 Debug.Log($"重置s2: {s2}");
             }
             if (s3 != null)
             {
-                s3.Stop();
+                s3.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 s3 = null;
                 Debug.Log($"重置s3: {s3}");
             }
