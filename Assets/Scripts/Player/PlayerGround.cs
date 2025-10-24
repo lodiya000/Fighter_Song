@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Lodiya
 {
@@ -26,8 +25,12 @@ namespace Lodiya
         {
             base.Update();
 
+            if (!inSpell && Input.GetKeyDown(KeyCode.Mouse0)) stateMachine.SwitchState(player.playerAttack);
 
-            //if (player.IsGroung() && Input.GetKeyDown(KeyCode.Mouse0)) stateMachine.SwitchState(player.playerAttack);
+            if (!inSpell && Input.GetKeyDown(KeyCode.Space))
+            {
+                stateMachine.SwitchState(player.playerStage_1st); 
+            }
         }
     }
 }

@@ -14,10 +14,10 @@ namespace Lodiya
         /// <summary>
         /// 最大攻擊段數  
         /// </summary>
-        private int attackIndexMax = 4;
-        private float[] attackAnimationTime = new float[4]
+        private int attackIndexMax = 3;
+        private float[] attackAnimationTime = new float[3]
         {
-            0.6f, 1.067f, 0.733f, 1.267f
+            1.2F, 1.2F, 1.6F
         }; 
 
         public PlayerAttack(string _name, StateMachine _stateMachine, Player _player) : base(_name, _stateMachine, _player)
@@ -28,12 +28,12 @@ namespace Lodiya
         {
             base.Enter();
 
-            player.ani.SetTrigger("攻擊");
+            player.ani.SetTrigger("快速攻擊");
 
             attackIndex++;
             if (attackIndex > attackIndexMax) attackIndex = 1;
 
-            player.ani.SetFloat("攻擊連段", attackIndex);
+            player.ani.SetFloat("攻擊類型", attackIndex);
             player.ani.applyRootMotion = true;
         }
 

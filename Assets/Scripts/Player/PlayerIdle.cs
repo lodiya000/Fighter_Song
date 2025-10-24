@@ -16,7 +16,6 @@ namespace Lodiya
         {
             base.Enter();
 
-            inputJump = true;
             player.ani.SetFloat("水平", 0);
             player.ani.SetFloat("垂直", 0);
             player.rig.linearVelocity = Vector3.zero;

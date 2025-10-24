@@ -34,8 +34,6 @@ namespace Lodiya
                 Vector3.up * player.rig.linearVelocity.y;; 
 
             if (inputH == 0 && inputV == 0) stateMachine.SwitchState(player.playerIdle);
-
-            Log.Text($"{player.walkSpeed} {inputH} {inputV}");
         }
     }
 }

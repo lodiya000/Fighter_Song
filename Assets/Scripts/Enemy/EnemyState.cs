@@ -17,7 +17,7 @@ namespace Lodiya
         {
             base.Enter();
 
-            Log.Text($"敵人: 進入<{name}>狀態");
+            //Log.Text($"敵人: 進入<{name}>狀態");
         }
     }
 }
