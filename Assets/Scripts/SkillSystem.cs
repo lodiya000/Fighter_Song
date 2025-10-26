@@ -1,4 +1,5 @@
 ﻿using Lodiya;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SkillSystem : MonoBehaviour
@@ -14,9 +15,10 @@ public class SkillSystem : MonoBehaviour
         }
     }
 
-[SerializeField]
+    [SerializeField]
     private Transform player;
     private Vector3 result;
+    private Vector3 skill;
 
     [SerializeField]
     private Transform[] baseAttatkPoint;
@@ -43,6 +45,8 @@ public class SkillSystem : MonoBehaviour
 
     public void SkillCast(Vector3 spell)
     {
+        skill = spell;
+        /*
         if(spell.x == 1)
         {
             if (spell.y == 1)
@@ -200,7 +204,210 @@ public class SkillSystem : MonoBehaviour
                 }
             }
         }
+        */
+        if (spell == new Vector3(3,3,3))
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                float n = Random.Range(0, 3.0f);
+                Invoke("ThunderStorm", n);
+            }
+        } 
+    }
 
+    /// <summary>
+    /// 生成基礎攻擊
+    /// </summary>
+    /// <param name="index">基礎攻擊段數 0左手 1右手 2雙手</param>
+    public void SpawnSkillAttatk(int index)
+    {
+        if (skill != null)
+        {
+            /*
+            if (skill == new Vector3(1, 1, 1) || skill == new Vector3(1, 1, 2) || skill == new Vector3(1, 1, 3))
+            {
+
+            }
+            else if (skill == new Vector3(1, 2, 2) || skill == new Vector3(1, 2, 3) || skill == new Vector3(2, 2, 3) || skill == new Vector3(2, 3, 2) || spell == new Vector3(3, 3, 1))
+            {
+
+            }
+            else if (skill == new Vector3(3, 2, 1) || skill == new Vector3(3, 3, 3))
+            {
+
+            }
+            */
+            if (skill.x == 1)
+            {
+                if (skill.y == 1)
+                {
+                    if (skill.z == 1)
+                    {
+                        GameObject fireball = Instantiate(fireBall_Small, player.transform);
+                        fireball.transform.parent = null;
+                    }
+                    else if (skill.z == 2)
+                    {
+                        GameObject fireball = Instantiate(fireBall_Middle, player.transform);
+                        fireball.transform.parent = null;
+                    }
+                    else if (skill.z == 3)
+                    {
+                        GameObject fireball = Instantiate(fireBall_Large, player.transform);
+                        fireball.transform.parent = null;
+                    }
+                }
+                else if (skill.y == 2)
+                {
+                    if (skill.z == 1)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 2)
+                    {
+                        //Transform p = GameObject.Find("Skeleton").transform;
+                        Instantiate(flame, skillAssignPoint.position, Quaternion.identity);
+                    }
+                    else if (skill.z == 3)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                }
+                else if (skill.y == 3)
+                {
+                    if (skill.z == 1)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 2)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 3)
+                    {
+                        //Transform p = GameObject.Find("Skeleton").transform;
+                        Instantiate(fireStorm, skillAssignPoint.position, Quaternion.identity);
+                    }
+                }
+            }
+            else if (skill.x == 2)
+            {
+                if (skill.y == 1)
+                {
+                    if (skill.z == 1)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 2)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 3)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                }
+                else if (skill.y == 2)
+                {
+                    if (skill.z == 1)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 2)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 3)
+                    {
+                        //Transform p = GameObject.Find("Skeleton").transform;
+                        Instantiate(waterImpact, skillAssignPoint.position, Quaternion.identity);
+                    }
+                }
+                else if (skill.y == 3)
+                {
+                    if (skill.z == 1)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 2)
+                    {
+                        //Transform p = GameObject.Find("Skeleton").transform;
+                        Instantiate(bubbleBurst, skillAssignPoint.position, Quaternion.identity);
+                    }
+                    else if (skill.z == 3)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                }
+            }
+            else if (skill.x == 3)
+            {
+                if (skill.y == 1)
+                {
+                    if (skill.z == 1)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 2)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 3)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                }
+                else if (skill.y == 2)
+                {
+                    if (skill.z == 1)
+                    {
+                        Instantiate(heal, player.transform);
+                    }
+                    else if (skill.z == 2)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                    else if (skill.z == 3)
+                    {
+                        Debug.Log("施放失敗");
+                    }
+                }
+                else if (skill.y == 3)
+                {
+                    if (skill.z == 1)
+                    {
+                        //Transform p = GameObject.Find("Skeleton").transform;
+                        Instantiate(thunder, skillAssignPoint.position, Quaternion.identity);
+                    }
+                    else if (skill.z == 2)
+                        Debug.Log("施放失敗");
+                    }
+                /*
+                    else if (skill.z == 3)
+                    {
+                        for (int i = 0; i < 20; i++)
+                        {
+                            float n = Random.Range(0, 3.0f);
+                            Invoke("ThunderStorm", n);
+                        }
+
+                    }
+                */
+                }
+
+            PlayerSpelling.Reset();
+        }
+        else 
+        {
+            if(index < 2)
+            {
+                Instantiate(fireBall_Small, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+            }
+            else if(index == 2) 
+            {
+                Instantiate(fireBall_Large, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+            }
+        }
     }
 
     private void ThunderStorm() 
@@ -209,21 +416,5 @@ public class SkillSystem : MonoBehaviour
         result.y = 0;
 
         Instantiate(thunder, result, Quaternion.identity);
-    }
-
-    /// <summary>
-    /// 生成基礎攻擊
-    /// </summary>
-    /// <param name="index">基礎攻擊段數 0左手 1右手 2雙手</param>
-    public void SpawnBasicAttatk(int index)
-    {
-        if(index < 2)
-        {
-            Instantiate(fireBall_Small, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
-        }
-        else if(index == 2) 
-        {
-            Instantiate(fireBall_Large, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
-        }
     }
 }

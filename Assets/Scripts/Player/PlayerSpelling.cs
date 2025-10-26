@@ -46,11 +46,10 @@ namespace Lodiya
             }
         }
 
-        protected void Reset()
+        public static void Reset()
         {
-
             //if(s1 = null) return;
-            player.HideSkillAssignPoint();
+            //player.HideSkillAssignPoint();
 
             if (s1 != null)
             {

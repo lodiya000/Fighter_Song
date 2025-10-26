@@ -150,9 +150,9 @@ namespace Lodiya
         /// 生成基礎攻擊
         /// </summary>
         /// <param name="index">基礎攻擊段數 0左手 1右手 2雙手</param>
-        private void SpawnBasicAttatk(int index)
+        private void SpawnSkillAttatk(int index)
         {
-            SkillSystem.instance.SpawnBasicAttatk(index);
+            SkillSystem.instance.SpawnSkillAttatk(index);
         }
 
         public void ShowSkillAssignPoint()
@@ -165,6 +165,7 @@ namespace Lodiya
             Physics.Raycast(skillAssignPointOriginal.position, 
                 skillAssignPointOriginal.forward, 
                 out hit, skillAssignPointLength, skillAssignPointLayer);
+
             if (hit.collider != null) psSkillAssignPoint.transform.position = hit.point;
             else psSkillAssignPoint.transform.position =
                     skillAssignPointOriginal.position +
