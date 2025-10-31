@@ -12,6 +12,8 @@ namespace Lodiya
         protected KeyCode skillKey3 = KeyCode.Alpha3;
         protected SkillSystem skillSystem;
 
+        protected KeyCode[] skills = { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3 };
+
         public PlayerSpelling(string _name, StateMachine _stateMachine, Player _player) : base(_name, _stateMachine, _player)
         {
         }

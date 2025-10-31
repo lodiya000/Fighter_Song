@@ -30,29 +30,16 @@ namespace Lodiya
         {
             base.Update();
 
-            if (Input.GetKeyDown(skillKey1))
+            for (int i = 0; i < 3; i++)
             {
-                spell.x = 1;
-                s1 = player.s1_fire;
-                s1.Play();
-                Debug.Log($"s1: {s1}");
-                stateMachine.SwitchState(player.playerStage_2nd); 
-            }
-            else if (Input.GetKeyDown(skillKey2))
-            {
-                spell.x = 2;
-                s1 = player.s1_wind;
-                s1.Play();
-                Debug.Log($"s1: {s1}");
-                stateMachine.SwitchState(player.playerStage_2nd);
-            }
-            else if(Input.GetKeyDown(skillKey3))
-            {
-                spell.x = 3;
-                s1 = player.s1_ice;
-                s1.Play();
-                Debug.Log($"s1: {s1}");
-                stateMachine.SwitchState(player.playerStage_2nd);
+                int index = i;
+
+                if (Input.GetKeyDown(skills[index]))
+                {
+                    player.skillRing1[index].Play();
+                    player.UpdateSkillCombo(0, SkillSlotManager.instance.skillTypesOrder[index]);
+                    stateMachine.SwitchState(player.playerStage_2nd);
+                }
             }
         }
     }

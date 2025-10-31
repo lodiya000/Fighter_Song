@@ -14,6 +14,7 @@ namespace Lodiya
         public EnemyDead enemyDead { get; private set; }
         #endregion
 
+        #region 資料
         [field: SerializeField, Tooltip("待機時間範圍")]
         public Vector2 idleRange { get; private set; } = new Vector2(1f, 3f);
         [field: SerializeField, Tooltip("遊走時間範圍")]
@@ -31,7 +32,6 @@ namespace Lodiya
         [field: SerializeField, Range(0f, 10)]
         public float attackCD { get; private set; } = 2.5f;
 
-
         public float trackSpeed { get; private set; } = 3.5f;
 
         [field: SerializeField]
@@ -39,9 +39,35 @@ namespace Lodiya
 
         public NavMeshAgent agent { get; private set; }
 
-        public Transform player {  get; private set; }
+        public Transform player { get; private set; }
 
         public Collider col;
+        #endregion
+
+        private void OnDrawGizmosSelected()
+        {
+            if (showWanderGizmos)
+            {
+                Gizmos.color = new Color(0.7f, 1f, 0.7f, 0.5f);
+                Gizmos.DrawSphere(originalPosition, wanderRadius);
+            }
+
+            if (showTrackGizmos)
+            {
+                Gizmos.color = new Color(1f, 0.8f, 0.3f, 0.3f);
+                Gizmos.DrawSphere(originalPosition, trackRadius);
+            }
+
+            //Gizmos.color = new Color(0.5f, 0.9f, 1f, 1f);
+            //Gizmos.DrawSphere(RandomPosition(originalPosition, wanderRadius),0.5f);
+
+        }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            // 嘗試取得碰到物件 是否有 技能物件元件
+            if (other.TryGetComponent(out SkillObject skillObject)) Damage(skillObject.damage);
+        }
 
         protected override void Awake()
         {
@@ -63,22 +89,9 @@ namespace Lodiya
             #endregion
         }
 
-        private void OnDrawGizmosSelected()
+        protected override void Update()
         {
-            if (showWanderGizmos)
-            {
-                Gizmos.color = new Color(0.7f, 1f, 0.7f, 0.5f);
-                Gizmos.DrawSphere(originalPosition, wanderRadius);
-            }
-
-            if (showTrackGizmos)
-            {
-                Gizmos.color = new Color(1f, 0.8f, 0.3f, 0.3f);
-                Gizmos.DrawSphere(originalPosition, trackRadius);
-            }
-
-            //Gizmos.color = new Color(0.5f, 0.9f, 1f, 1f);
-            //Gizmos.DrawSphere(RandomPosition(originalPosition, wanderRadius),0.5f);
+            base.Update();
 
         }
 
@@ -93,7 +106,7 @@ namespace Lodiya
             Vector3 result = center + Random.insideUnitSphere * radius;
             result.y = 0;
 
-            if(NavMesh.SamplePosition(result, out NavMeshHit hit, radius, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(result, out NavMeshHit hit, radius, NavMesh.AllAreas))
                 result = hit.position;
             return result;
         }
@@ -101,12 +114,6 @@ namespace Lodiya
         public bool IsPlayerInTrackArea()
         {
             return Physics.OverlapSphere(originalPosition, trackRadius, Player.m_layer).Length > 0;
-        }
-
-        protected override void Update()
-        {
-            base.Update();
-
         }
 
         protected override void Dead()

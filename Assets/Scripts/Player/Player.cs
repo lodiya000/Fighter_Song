@@ -2,6 +2,21 @@
 
 namespace Lodiya
 {
+    /// <summary>
+    /// 技能組合：哪三種符文組合與該技能名稱
+    /// </summary>
+    [SerializeField]
+    public class SkillCombo
+    {
+        public SkillType[] skillTypes;
+        public string skillName;
+
+        public SkillCombo()
+        {
+            skillTypes = new SkillType[3];
+        }
+    }
+
     public class Player : Character
     {
         #region 單例模式
@@ -51,12 +66,13 @@ namespace Lodiya
         #endregion
 
         #region 魔法環
-        [SerializeField]
-        public ParticleSystem s1_fire, s1_wind, s1_ice;
-        [SerializeField]
-        public ParticleSystem s2_fire, s2_wind, s2_ice;
-        [SerializeField]
-        public ParticleSystem s3_fire, s3_wind, s3_ice;
+        [Header("技能三層的圓圈，按造順序：火、水、風")]
+        [field: SerializeField]
+        public ParticleSystem[] skillRing1 { get; private set; }
+        [field: SerializeField]
+        public ParticleSystem[] skillRing2 { get; private set; }
+        [field: SerializeField]
+        public ParticleSystem[] skillRing3 { get; private set; }
         #endregion
 
         #region 技能指定位置
@@ -70,6 +86,9 @@ namespace Lodiya
         [SerializeField]
         private LayerMask skillAssignPointLayer;
         #endregion
+
+        [field: SerializeField]
+        public SkillCombo skillCombo { get; private set; }
 
         private void OnDrawGizmos()
         {
@@ -90,6 +109,8 @@ namespace Lodiya
         {
             base.Awake();
 
+            skillCombo = new SkillCombo();
+
             #region 實例化
             playerIdle = new PlayerIdle($"{name}待機", stateMachine, this);
             playerWalk = new PlayerWalk($"{name}走路", stateMachine, this);
@@ -105,23 +126,21 @@ namespace Lodiya
 
             stateMachine.Initialize(playerIdle);
             #endregion
-
-            #region ring
-            s1_fire.Stop();
-            s1_wind.Stop();
-            s1_ice.Stop();
-            s2_fire.Stop();
-            s2_wind.Stop();
-            s2_ice.Stop();
-            s3_fire.Stop();
-            s3_wind.Stop();
-            s3_ice.Stop();
-            #endregion
         }
 
         protected override void Update()
         {
             base.Update();
+        }
+
+        /// <summary>
+        /// 更新技能組合
+        /// </summary>
+        /// <param name="index">要更新的技能編號</param>
+        /// <param name="skillType">該技能類型</param>
+        public void UpdateSkillCombo(int index, SkillType skillType)
+        {
+            skillCombo.skillTypes[index] = skillType;
         }
 
         /// <summary>
@@ -141,9 +160,9 @@ namespace Lodiya
             // 如果 射線 有打到物件 就將 技能指定位置 設定在 打到物件的點上方
             if (hit.collider != null) psSkillAssignPoint.transform.position = hit.point;
             // 否則 沒打到物件 就將 技能指定位置 設定在 射線最後
-            else 
-                psSkillAssignPoint.transform.position = 
-                    skillAssignPointOriginal.position + 
+            else
+                psSkillAssignPoint.transform.position =
+                    skillAssignPointOriginal.position +
                     skillAssignPointOriginal.forward * skillAssignPointLength;
         }
 
