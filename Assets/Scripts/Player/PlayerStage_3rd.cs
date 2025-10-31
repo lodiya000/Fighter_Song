@@ -24,6 +24,18 @@ namespace Lodiya
         {
             base.Update();
 
+            for (int i = 0; i < 3; i++)
+            {
+                int index = i;
+
+                if (Input.GetKeyDown(siklls[index]))
+                {
+                    player.skillRing3[index].Play();
+                    player.UpddateSkillCombo(0, SkillSlotManager.instance.skillTypesOrder[index]);
+                    stateMachine.SwitchState(player.playerStage_Cast);
+                }
+            }
+            /*
             if (Input.GetKeyDown(skillKey1))
             {
                 spell.z = 1;
@@ -48,6 +60,7 @@ namespace Lodiya
                 Debug.Log($"s3: {s3}");
                 stateMachine.SwitchState(player.playerStage_Cast);
             }
+            */
         }
     }
 }

@@ -114,5 +114,13 @@ namespace Lodiya
             base.Dead();
             stateMachine.SwitchState(enemyDead);
         }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            if(other.TryGetComponent(out SkillObject skillObject))
+            {
+                Damage(skillObject.damage);
+            }
+        }
     }
 }

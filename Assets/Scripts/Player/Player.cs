@@ -3,6 +3,18 @@ using UnityEngine;
 
 namespace Lodiya
 {
+    public class SkillCombo
+    {
+        public SkillType[] skillTypes;
+        public string skillName;
+
+        public SkillCombo()
+        {
+            skillTypes = new SkillType[3];
+        }
+
+    }
+
     public class Player : Character
     {
         #region 單例模式
@@ -52,6 +64,7 @@ namespace Lodiya
         public PlayerStage_Cast playerStage_Cast { get; private set; }
         #endregion
  
+        /*
         #region 魔法環
         [SerializeField]
         public ParticleSystem s1_fire, s1_wind, s1_ice;
@@ -60,6 +73,14 @@ namespace Lodiya
         [SerializeField]
         public ParticleSystem s3_fire, s3_wind, s3_ice;
         #endregion
+        */
+
+        [field: SerializeField]
+        public ParticleSystem[] skillRing1 { get; private set; }
+        [field: SerializeField]
+        public ParticleSystem[] skillRing2 { get; private set; }
+        [field: SerializeField]
+        public ParticleSystem[] skillRing3 { get; private set; }
 
         #region 技能指定位置
         [Header("技能指定位置")]
@@ -72,6 +93,19 @@ namespace Lodiya
         [SerializeField]
         private LayerMask skillAssignPointLayer;
         #endregion
+
+        [field: SerializeField]
+        public SkillCombo skillCombo { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index">要更新的技能編號</param>
+        /// <param name="skillType">技能類型</param>
+        public void UpddateSkillCombo(int index, SkillType skillType)
+        {
+            skillCombo.skillTypes[index] = skillType;
+        }
 
         [SerializeField]
         private CinemachineRotationComposer cameraPoint;
@@ -102,11 +136,13 @@ namespace Lodiya
             playerStage_3rd = new PlayerStage_3rd($"{name}詠唱", stateMachine, this);
             playerStage_Cast = new PlayerStage_Cast($"{name}詠唱", stateMachine, this);
 
+            skillCombo = new SkillCombo();
+
             traCamera = GameObject.Find("虛擬攝影機_第三人稱").transform;
 
             stateMachine.Initialize(playerIdle);
             #endregion
-
+            /*
             #region ring
             s1_fire.Stop();
             s1_wind.Stop();
@@ -118,6 +154,7 @@ namespace Lodiya
             s3_wind.Stop();
             s3_ice.Stop();
             #endregion
+            */
         }
 
         protected override void Update()
