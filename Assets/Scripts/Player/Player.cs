@@ -1,22 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Lodiya
 {
-    /// <summary>
-    /// 技能組合：哪三種符文組合與該技能名稱
-    /// </summary>
-    [SerializeField]
-    public class SkillCombo
-    {
-        public SkillType[] skillTypes;
-        public string skillName;
-
-        public SkillCombo()
-        {
-            skillTypes = new SkillType[3];
-        }
-    }
-
     public class Player : Character
     {
         #region 單例模式
@@ -87,8 +73,9 @@ namespace Lodiya
         private LayerMask skillAssignPointLayer;
         #endregion
 
+        // public SkillCombo skillCombo { get; private set; }
         [field: SerializeField]
-        public SkillCombo skillCombo { get; private set; }
+        public SkillType[] skillTypes { get; private set; }
 
         private void OnDrawGizmos()
         {
@@ -109,7 +96,8 @@ namespace Lodiya
         {
             base.Awake();
 
-            skillCombo = new SkillCombo();
+            // skillCombo = new SkillCombo();
+            skillTypes = new SkillType[3];
 
             #region 實例化
             playerIdle = new PlayerIdle($"{name}待機", stateMachine, this);
@@ -140,7 +128,8 @@ namespace Lodiya
         /// <param name="skillType">該技能類型</param>
         public void UpdateSkillCombo(int index, SkillType skillType)
         {
-            skillCombo.skillTypes[index] = skillType;
+            // skillCombo.skillTypes[index] = skillType;
+            skillTypes[index] = skillType;
         }
 
         /// <summary>

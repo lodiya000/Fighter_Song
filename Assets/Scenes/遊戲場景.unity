@@ -22188,6 +22188,7 @@ MonoBehaviour:
   skillAssignPointLayer:
     serializedVersion: 2
     m_Bits: 119
+  <skillTypes>k__BackingField: 
 --- !u!4 &786691335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 466417675548362841, guid: 7af75bc014260e6418a137c6a5e2838a, type: 3}
@@ -30936,6 +30937,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23302bdcb0d4e7d45ac51fa89b944a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillSystem
+  allSkillCombo:
+  - {fileID: 11400000, guid: c58881fb21d191841993decda1afc00a, type: 2}
+  - {fileID: 11400000, guid: 8a4e95aa2d04ee74f8cc151741b66837, type: 2}
+  - {fileID: 11400000, guid: 2620c46853b72814eb59d42e39aab1f5, type: 2}
   player: {fileID: 0}
   basicFireSmallBallPoints:
   - {fileID: 105288466}

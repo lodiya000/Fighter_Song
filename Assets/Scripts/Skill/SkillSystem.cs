@@ -1,4 +1,5 @@
 ﻿using Lodiya;
+using System.Linq;
 using UnityEngine;
 
 public class SkillSystem : MonoBehaviour
@@ -13,6 +14,9 @@ public class SkillSystem : MonoBehaviour
             return _instance;
         }
     }
+
+    [SerializeField]
+    private SkillCombo[] allSkillCombo;
 
     [SerializeField]
     private Transform player;
@@ -42,15 +46,34 @@ public class SkillSystem : MonoBehaviour
         player = GameObject.Find(Player.m_name).transform;
     }
 
+    /// <summary>
+    /// 投擲技能
+    /// </summary>
+    public void SkillCast()
+    {
+        for (int i = 0; i < allSkillCombo.Length; i++)
+        {
+            var playerCombo = Player.instance.skillTypes;
+            var skillCombo = allSkillCombo[i];
+
+            Log.Text(playerCombo.SequenceEqual(skillCombo.combo));
+            // 如果玩家組合 與 當前技能組合 相同
+            if (playerCombo.SequenceEqual(skillCombo.combo))
+            {
+                Instantiate(skillCombo.skillPrefab, player.position, Quaternion.identity);
+            }
+        }
+    }
+
     public void SkillCast(Vector3 spell)
     {
-        if(spell.x == 1)
+        if (spell.x == 1)
         {
             if (spell.y == 1)
             {
                 if (spell.z == 1)
                 {
-                    GameObject fireball =  Instantiate(fireBall_Small, player.transform);
+                    GameObject fireball = Instantiate(fireBall_Small, player.transform);
                     fireball.transform.parent = null;
                 }
                 else if (spell.z == 2)
@@ -192,11 +215,11 @@ public class SkillSystem : MonoBehaviour
                 }
                 else if (spell.z == 3)
                 {
-                    for (int i = 0; i < 20; i++) 
+                    for (int i = 0; i < 20; i++)
                     {
                         float n = Random.Range(0, 3.0f);
                         Invoke("ThunderStorm", n);
-                    }   
+                    }
 
                 }
             }
@@ -204,7 +227,7 @@ public class SkillSystem : MonoBehaviour
 
     }
 
-    private void ThunderStorm() 
+    private void ThunderStorm()
     {
         result = player.position + Random.insideUnitSphere * 4;
         result.y = 0;
@@ -218,8 +241,8 @@ public class SkillSystem : MonoBehaviour
     /// <param name="index">基礎攻擊段數：0 左手、1 右手、2 雙手</param>
     public void SpawnBasicFireSmallBall(int index)
     {
-        Instantiate(fireBall_Small, 
-            basicFireSmallBallPoints[index].position, 
+        Instantiate(fireBall_Small,
+            basicFireSmallBallPoints[index].position,
             basicFireSmallBallPoints[index].rotation);
     }
 }

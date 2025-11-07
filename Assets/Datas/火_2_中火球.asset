@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522d89e178e55cd4c9e787595225340b, type: 3}
+  m_Name: "\u706B_2_\u4E2D\u706B\u7403"
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillCombo
+  skillTypes: 010000000100000002000000
+  skillName: "\u4E2D\u706B\u7403"
+  skillPrefab: {fileID: 6839782607452383445, guid: ee6157894ccd32c43a410a83a5fe8811, type: 3}
