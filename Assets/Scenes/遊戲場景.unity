@@ -3195,6 +3195,7 @@ MonoBehaviour:
   skillAssignPointLayer:
     serializedVersion: 2
     m_Bits: 119
+  <skillTypes>k__BackingField: 
   cameraPoint: {fileID: 144926142}
 --- !u!4 &786691335 stripped
 Transform:
@@ -6784,6 +6785,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23302bdcb0d4e7d45ac51fa89b944a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillSystem
+  allSkillCombo:
+  - {fileID: 11400000, guid: 2b974f52eadef554395e1bd24d3bf975, type: 2}
+  - {fileID: 11400000, guid: 80a99e41f5b0e5d4f9d58c58a00c8cc4, type: 2}
+  - {fileID: 11400000, guid: c77648792ed38a343b5e9fecb180296a, type: 2}
+  - {fileID: 11400000, guid: 5fa68696a5c8d2b41b18fa4b6f339b8a, type: 2}
+  - {fileID: 11400000, guid: fda131c98eda6f341a663bd242c8da96, type: 2}
+  - {fileID: 11400000, guid: 649ce0ccccd33394ba241e0ebf78517c, type: 2}
+  - {fileID: 11400000, guid: 719061238f51c0d4b85d5a5c3b991a81, type: 2}
+  - {fileID: 11400000, guid: 964bd3c74cd6e064aaff27bf4581450e, type: 2}
+  - {fileID: 11400000, guid: 50854133d548a8e4eb656db846c281fd, type: 2}
+  - {fileID: 11400000, guid: 1c287af981c5f0e41816d8614706649c, type: 2}
   player: {fileID: 0}
   baseAttatkPoint:
   - {fileID: 1895346808}

@@ -38,6 +38,7 @@ namespace Lodiya
 
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
+                /*
                 if (spell == new Vector3(1, 1, 1) || spell == new Vector3(1, 1, 2) || spell == new Vector3(1, 1, 3))
                 {
                     player.ani.SetFloat("攻擊類型", 3);
@@ -53,9 +54,9 @@ namespace Lodiya
                     player.ani.SetFloat("攻擊類型", 5);
                     player.ani.SetTrigger("詠唱攻擊");
                 }
-
-
-                skillSystem.SkillCast(spell);
+                */
+                SkillSystem.instance.SkillCast(spell);
+                //skillSystem.SkillCast(spell);
 
                 stateMachine.SwitchState(player.playerStage_1st);
             }

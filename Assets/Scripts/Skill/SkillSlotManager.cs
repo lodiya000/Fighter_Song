@@ -28,11 +28,12 @@ namespace Lodiya
         public SkillType[] skillTypesOrder => _skillTypesOrder;
 
         public SkillType Skill1 => _skillTypesOrder[0];
-        public SkillType Skill2 => _skillTypesOrder[0];
-        public SkillType Skill3 => _skillTypesOrder[0];
+        public SkillType Skill2 => _skillTypesOrder[1];
+        public SkillType Skill3 => _skillTypesOrder[2];
 
         private void Awake()
         {
+            //測試符文順序 火 水 風
             _skillTypesOrder = new SkillType[3]
                 { SkillType.Fire, SkillType.Water, SkillType.Wind};            
         }

@@ -3,18 +3,6 @@ using UnityEngine;
 
 namespace Lodiya
 {
-    public class SkillCombo
-    {
-        public SkillType[] skillTypes;
-        public string skillName;
-
-        public SkillCombo()
-        {
-            skillTypes = new SkillType[3];
-        }
-
-    }
-
     public class Player : Character
     {
         #region 單例模式
@@ -32,7 +20,6 @@ namespace Lodiya
             }
         }
         #endregion
-
 
         public const string m_name = "玩家";
         public static LayerMask m_layer = 1 << 7;
@@ -94,8 +81,9 @@ namespace Lodiya
         private LayerMask skillAssignPointLayer;
         #endregion
 
+        //public SkillCombo skillCombo { get; private set; }
         [field: SerializeField]
-        public SkillCombo skillCombo { get; private set; }
+        public SkillType[] skillTypes { get; private set; }
 
         /// <summary>
         /// 
@@ -104,7 +92,7 @@ namespace Lodiya
         /// <param name="skillType">技能類型</param>
         public void UpddateSkillCombo(int index, SkillType skillType)
         {
-            skillCombo.skillTypes[index] = skillType;
+            skillTypes[index] = skillType;
         }
 
         [SerializeField]
@@ -136,7 +124,7 @@ namespace Lodiya
             playerStage_3rd = new PlayerStage_3rd($"{name}詠唱", stateMachine, this);
             playerStage_Cast = new PlayerStage_Cast($"{name}詠唱", stateMachine, this);
 
-            skillCombo = new SkillCombo();
+            skillTypes = new SkillType[3];
 
             traCamera = GameObject.Find("虛擬攝影機_第三人稱").transform;
 
@@ -178,7 +166,7 @@ namespace Lodiya
             transform.rotation = Quaternion.Lerp(transform.rotation, cameraAngle, turnSpeed * Time.deltaTime);
         }
 
-        public void Splling(string skil)
+        public void Splling(string skill)
         {
 
         }

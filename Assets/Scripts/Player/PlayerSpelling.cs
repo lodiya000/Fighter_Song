@@ -53,24 +53,24 @@ namespace Lodiya
             //if(s1 = null) return;
             //player.HideSkillAssignPoint();
 
-            if (s1 != null)
-            {
-                s1.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
-                s1 = null;
-                Debug.Log($"重置s1: {s1}");
-            }
-            if (s2 != null)
-            {
-                s2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                s2 = null;
-                Debug.Log($"重置s2: {s2}");
-            }
-            if (s3 != null)
-            {
-                s3.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                s3 = null;
-                Debug.Log($"重置s3: {s3}");
-            }
+                if (s1 != null)
+                {
+                    s1.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
+                    s1 = null;
+                    Debug.Log($"重置s1: {s1}");
+                }
+                if (s2 != null)
+                {
+                    s2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    s2 = null;
+                    Debug.Log($"重置s2: {s2}");
+                }
+                if (s3 != null)
+                {
+                    s3.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    s3 = null;
+                    Debug.Log($"重置s3: {s3}");
+                }
 
             spell = new Vector3(0, 0, 0);
 

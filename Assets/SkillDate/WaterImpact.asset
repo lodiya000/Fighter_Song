@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a27a9c9dfa251848b2b61009f85afa8, type: 3}
+  m_Name: WaterImpact
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillCombo
+  skillTypes: 020000000200000003000000
+  skillName: "\u6C34\u6D41\u885D\u64CA"
+  skillPrefab: {fileID: 8067116101241426615, guid: 83182921e06ecfd4487700a66b569566, type: 3}
+  skillposture: 4
