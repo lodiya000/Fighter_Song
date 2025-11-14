@@ -23609,8 +23609,9 @@ GameObject:
   - component: {fileID: 1115240747}
   - component: {fileID: 1115240749}
   - component: {fileID: 1115240748}
+  - component: {fileID: 1115240750}
   m_Layer: 5
-  m_Name: "\u5716\u7247_\u7B26\u6587"
+  m_Name: "\u5716\u7247_\u7B26\u6587_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23630,10 +23631,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 357985852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000038146973, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115240748
 MonoBehaviour:
@@ -23673,6 +23674,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115240746}
   m_CullTransparentMesh: 1
+--- !u!114 &1115240750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115240746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272de3dea545dfa439b61f5f5b179271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
 --- !u!1 &1121797109
 GameObject:
   m_ObjectHideFlags: 0
@@ -29516,8 +29529,9 @@ GameObject:
   - component: {fileID: 1350834937}
   - component: {fileID: 1350834939}
   - component: {fileID: 1350834938}
+  - component: {fileID: 1350834940}
   m_Layer: 5
-  m_Name: "\u5716\u7247_\u7B26\u6587"
+  m_Name: "\u5716\u7247_\u7B26\u6587_3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29537,10 +29551,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1875008136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000038146973, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350834938
 MonoBehaviour:
@@ -29580,6 +29594,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350834936}
   m_CullTransparentMesh: 1
+--- !u!114 &1350834940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350834936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272de3dea545dfa439b61f5f5b179271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
 --- !u!1 &1370438043
 GameObject:
   m_ObjectHideFlags: 0
@@ -32225,8 +32251,9 @@ GameObject:
   - component: {fileID: 1637741011}
   - component: {fileID: 1637741013}
   - component: {fileID: 1637741012}
+  - component: {fileID: 1637741014}
   m_Layer: 5
-  m_Name: "\u5716\u7247_\u7B26\u6587"
+  m_Name: "\u5716\u7247_\u7B26\u6587_1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32246,10 +32273,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1370438044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000038146973, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637741012
 MonoBehaviour:
@@ -32289,6 +32316,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637741010}
   m_CullTransparentMesh: 1
+--- !u!114 &1637741014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637741010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272de3dea545dfa439b61f5f5b179271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
 --- !u!1 &1642148286
 GameObject:
   m_ObjectHideFlags: 0
