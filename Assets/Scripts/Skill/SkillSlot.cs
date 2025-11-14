@@ -9,6 +9,11 @@ namespace Lodiya
     /// </summary>
     public class SkillSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        [field: SerializeField, Header("符文")]
+        public DataRune dataRune { get; private set; }
+        [field: SerializeField, Header("技能插槽編號")]
+        public int slotIndex { get; private set; }
+
         private Vector3 originalPoint;
         private Transform traCanvas;
         private Transform parent;
@@ -21,6 +26,8 @@ namespace Lodiya
         {
             originalPoint = transform.localPosition;
             imgSkill = GetComponent<Image>();
+            imgSkill.sprite = dataRune.runeIcon;
+            imgSkill.color = Color.white;
             traCanvas = GameObject.Find("畫布").transform;
             parent = transform.parent;
         }
@@ -45,16 +52,25 @@ namespace Lodiya
             {
                 var sprite = imgSkill.sprite;
                 var color = imgSkill.color;
+                var tempRune = dataRune;
                 imgSkill.sprite = targetSkillSlot.sprSkill;
                 targetSkillSlot.imgSkill.sprite = sprite;
                 imgSkill.color = targetSkillSlot.colorSkill;
                 targetSkillSlot.imgSkill.color = color;
+                dataRune = targetSkillSlot.dataRune;
+                targetSkillSlot.UpdateRune(tempRune);
+                SkillSlotManager.instance.UpdateSkillTypeSorder(slotIndex, targetSkillSlot.slotIndex);
             }
 
             transform.SetParent(parent);
             transform.SetAsFirstSibling();
             imgSkill.raycastTarget = true;
             transform.localPosition = originalPoint;
+        }
+
+        public void UpdateRune(DataRune newRune)
+        {
+            dataRune = newRune;
         }
     }
 }

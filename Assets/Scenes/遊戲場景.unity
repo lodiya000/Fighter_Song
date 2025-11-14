@@ -23686,6 +23686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272de3dea545dfa439b61f5f5b179271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
+  <dataRune>k__BackingField: {fileID: 11400000, guid: 7432d94fa5ffc7d48a641b639f3d2fd7, type: 2}
+  <slotIndex>k__BackingField: 1
 --- !u!1 &1121797109
 GameObject:
   m_ObjectHideFlags: 0
@@ -29606,6 +29608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272de3dea545dfa439b61f5f5b179271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
+  <dataRune>k__BackingField: {fileID: 11400000, guid: c2cf8e26d6db0dd48a0ad50cf4cce15a, type: 2}
+  <slotIndex>k__BackingField: 2
 --- !u!1 &1370438043
 GameObject:
   m_ObjectHideFlags: 0
@@ -31678,6 +31682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23516a5b48527246acf6d99f80993e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlotManager
+  _skillTypesOrder: 
 --- !u!4 &1558567708
 Transform:
   m_ObjectHideFlags: 0
@@ -32328,6 +32333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272de3dea545dfa439b61f5f5b179271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
+  <dataRune>k__BackingField: {fileID: 11400000, guid: 687588ef678edb94389ef8ae2b5ecd4d, type: 2}
+  <slotIndex>k__BackingField: 0
 --- !u!1 &1642148286
 GameObject:
   m_ObjectHideFlags: 0

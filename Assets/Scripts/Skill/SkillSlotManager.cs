@@ -18,6 +18,7 @@ namespace Lodiya
             }
         }
 
+        [SerializeField]
         private SkillType[] _skillTypesOrder;
 
         /// <summary>
@@ -34,6 +35,18 @@ namespace Lodiya
             // 測試順序為：火、水、風
             _skillTypesOrder = new SkillType[3] 
             { SkillType.Fire, SkillType.Water, SkillType.Wind };  
+        }
+
+        /// <summary>
+        /// 更新技能類型順序：在對調插槽後更新
+        /// </summary>
+        /// <param name="first">要更新的第一個技能索引</param>
+        /// <param name="second">要更新的第二個技能索引</param>
+        public void UpdateSkillTypeSorder(int first, int second)
+        {
+            SkillType temp = _skillTypesOrder[first];
+            _skillTypesOrder[first] = _skillTypesOrder[second];
+            _skillTypesOrder[second] = temp;
         }
     }
 }
