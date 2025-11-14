@@ -164,8 +164,9 @@ GameObject:
   - component: {fileID: 3287501}
   - component: {fileID: 3287503}
   - component: {fileID: 3287502}
+  - component: {fileID: 3287504}
   m_Layer: 5
-  m_Name: "\u7B26\u6587\u5716\u7247"
+  m_Name: "\u5716\u7247_\u7B26\u6587_1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,6 +229,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3287500}
   m_CullTransparentMesh: 1
+--- !u!114 &3287504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac640af168733a54a9b21e873fd9e868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
 --- !u!4 &7210755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2619307604809084288, guid: 69905f381b9c43440aed4e5a7ff15c76, type: 3}
@@ -445,8 +458,9 @@ GameObject:
   - component: {fileID: 98544975}
   - component: {fileID: 98544977}
   - component: {fileID: 98544976}
+  - component: {fileID: 98544978}
   m_Layer: 5
-  m_Name: "\u7B26\u6587\u5716\u7247"
+  m_Name: "\u5716\u7247_\u7B26\u6587_3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,6 +523,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98544974}
   m_CullTransparentMesh: 1
+--- !u!114 &98544978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98544974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac640af168733a54a9b21e873fd9e868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
 --- !u!4 &116053721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2619307604809084288, guid: 69905f381b9c43440aed4e5a7ff15c76, type: 3}
@@ -749,8 +775,9 @@ GameObject:
   - component: {fileID: 143281551}
   - component: {fileID: 143281553}
   - component: {fileID: 143281552}
+  - component: {fileID: 143281554}
   m_Layer: 5
-  m_Name: "\u7B26\u6587\u5716\u7247"
+  m_Name: "\u5716\u7247_\u7B26\u6587_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,6 +840,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143281550}
   m_CullTransparentMesh: 1
+--- !u!114 &143281554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143281550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac640af168733a54a9b21e873fd9e868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillSlot
 --- !u!1 &144926139
 GameObject:
   m_ObjectHideFlags: 0
@@ -6802,19 +6841,9 @@ MonoBehaviour:
   - {fileID: 439826444}
   - {fileID: 2075172225}
   skillAssignPoint: {fileID: 4314739014588594043}
-  fireEnergy: {fileID: 8042002273405980859, guid: c00bad8ea0e090048b3af40d65cd07f0, type: 3}
-  windEnergy: {fileID: 3496656895728022838, guid: 9b91977ca80cef343aa045a12de5866f, type: 3}
-  iceEnergy: {fileID: 3492871432423207932, guid: 318b8bad4efb1074c805c62b8e90a761, type: 3}
-  fireBall_Small: {fileID: 4268378883312040066, guid: 9e49d73d01cdc2844a5522fa8cea680c, type: 3}
-  fireBall_Middle: {fileID: 6839782607452383445, guid: ee6157894ccd32c43a410a83a5fe8811, type: 3}
-  fireBall_Large: {fileID: 6891279637830260591, guid: 72ee8a6e8614cd54a8497ea5fd2fe53c, type: 3}
-  flame: {fileID: 2233059962670917270, guid: 033b472f8079ece4bb8ff49bc36c54d8, type: 3}
-  fireStorm: {fileID: 5606452091649190311, guid: 43f2e62d342ac60448404adde416e444, type: 3}
-  heal: {fileID: 2762293591843674241, guid: 1e4f9bc6745cc304990cee58e1b3ee6f, type: 3}
-  thunder: {fileID: 7746951641678701324, guid: b57450e75586c2347bebe908f719591e, type: 3}
-  iceSpine: {fileID: 7802818098207952587, guid: 75b84e52fce0b88418ddbb84b1c87556, type: 3}
-  waterImpact: {fileID: 8067116101241426615, guid: 83182921e06ecfd4487700a66b569566, type: 3}
-  bubbleBurst: {fileID: 635755975399992398, guid: e0bcb5456a8b6dd4484bb0f7b4a2edca, type: 3}
+  NormalSkillCombo:
+  - {fileID: 11400000, guid: 2b974f52eadef554395e1bd24d3bf975, type: 2}
+  - {fileID: 11400000, guid: c77648792ed38a343b5e9fecb180296a, type: 2}
 --- !u!4 &1479000798
 Transform:
   m_ObjectHideFlags: 0
@@ -11447,6 +11476,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5742335428379017236, guid: 7af75bc014260e6418a137c6a5e2838a, type: 3}
       propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173032552960419046, guid: 7af75bc014260e6418a137c6a5e2838a, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8214320459654505060, guid: 7af75bc014260e6418a137c6a5e2838a, type: 3}

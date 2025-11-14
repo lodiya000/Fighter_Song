@@ -22,6 +22,9 @@ namespace Lodiya
         public override void Exit()
         {
             base.Exit();
+
+            Reset();
+
             player.HideSkillAssignPoint();
         }
 

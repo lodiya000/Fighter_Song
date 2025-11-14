@@ -17,8 +17,6 @@ namespace Lodiya
             Debug.Log("進入第一階段");
 
             inSpell = true;
-            player.ani.SetBool("詠唱模式", true);
-            player.ani.SetTrigger("進入詠唱模式");
         }
 
         public override void Exit()

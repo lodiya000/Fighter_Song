@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Lodiya
 {
@@ -48,29 +49,18 @@ namespace Lodiya
             }
         }
 
-        public static void Reset()
+        protected void Reset()
         {
             //if(s1 = null) return;
             //player.HideSkillAssignPoint();
 
-                if (s1 != null)
-                {
-                    s1.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
-                    s1 = null;
-                    Debug.Log($"重置s1: {s1}");
-                }
-                if (s2 != null)
-                {
-                    s2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                    s2 = null;
-                    Debug.Log($"重置s2: {s2}");
-                }
-                if (s3 != null)
-                {
-                    s3.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                    s3 = null;
-                    Debug.Log($"重置s3: {s3}");
-                }
+            for (int i = 0; i < player.skillRing1.Length; i++)
+            {
+                player.skillRing1[i].Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); ;
+                player.skillRing2[i].Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); ;
+                player.skillRing3[i].Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); ;
+            }
+
 
             spell = new Vector3(0, 0, 0);
 

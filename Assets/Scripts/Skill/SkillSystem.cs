@@ -31,15 +31,7 @@ public class SkillSystem : MonoBehaviour
 
     #region 技能預置物
     [SerializeField]
-    public GameObject fireEnergy, windEnergy, iceEnergy;
-    [SerializeField]
-    public GameObject fireBall_Small, fireBall_Middle, fireBall_Large;
-    [SerializeField]
-    public GameObject flame, fireStorm;
-    [SerializeField]
-    public GameObject heal, thunder;
-    [SerializeField]
-    public GameObject iceSpine, waterImpact, bubbleBurst;
+    private SkillCombo[] NormalSkillCombo;
     #endregion
 
     private void Awake()
@@ -75,211 +67,33 @@ public class SkillSystem : MonoBehaviour
     {
         Log.Text("skill");
 
-        if (skill != null)
+        if (Player.instance.ani.GetBool("詠唱模式"))
         {
-            Log.Text(skill);
-
-            /*
-            if (skill == new Vector3(1, 1, 1) || skill == new Vector3(1, 1, 2) || skill == new Vector3(1, 1, 3))
+            for (int i = 0; i < allSkillCombo.Length; i++)
             {
+                var playerCombo = Player.instance.skillTypes;
+                var skillCombo = allSkillCombo[i];
 
-            }
-            else if (skill == new Vector3(1, 2, 2) || skill == new Vector3(1, 2, 3) || skill == new Vector3(2, 2, 3) || skill == new Vector3(2, 3, 2) || spell == new Vector3(3, 3, 1))
-            {
-
-            }
-            else if (skill == new Vector3(3, 2, 1) || skill == new Vector3(3, 3, 3))
-            {
-
-            }
-            */
-            if (skill.x == 1)
-            {
-                if (skill.y == 1)
+                //Log.Text(playerCombo.SequenceEqual(skillCombo.combo));
+                if (playerCombo.SequenceEqual(skillCombo.combo))
                 {
-                    if (skill.z == 1)
-                    {
-                        GameObject fireball = Instantiate(fireBall_Small, player.transform);
-                        fireball.transform.parent = null;
-                    }
-                    else if (skill.z == 2)
-                    {
-                        GameObject fireball = Instantiate(fireBall_Middle, player.transform);
-                        fireball.transform.parent = null;
-                    }
-                    else if (skill.z == 3)
-                    {
-                        GameObject fireball = Instantiate(fireBall_Large, player.transform);
-                        fireball.transform.parent = null;
-                    }
-                }
-                else if (skill.y == 2)
-                {
-                    if (skill.z == 1)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 2)
-                    {
-                        //Transform p = GameObject.Find("Skeleton").transform;
-                        Instantiate(flame, skillAssignPoint.position, Quaternion.identity);
-                    }
-                    else if (skill.z == 3)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                }
-                else if (skill.y == 3)
-                {
-                    if (skill.z == 1)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 2)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 3)
-                    {
-                        //Transform p = GameObject.Find("Skeleton").transform;
-                        Instantiate(fireStorm, skillAssignPoint.position, Quaternion.identity);
-                    }
+                    Log.Text($"{i}");
+                    Instantiate(skillCombo.skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
                 }
             }
-            else if (skill.x == 2)
-            {
-                if (skill.y == 1)
-                {
-                    if (skill.z == 1)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 2)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 3)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                }
-                else if (skill.y == 2)
-                {
-                    if (skill.z == 1)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 2)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 3)
-                    {
-                        //Transform p = GameObject.Find("Skeleton").transform;
-                        Instantiate(waterImpact, skillAssignPoint.position, Quaternion.identity);
-                    }
-                }
-                else if (skill.y == 3)
-                {
-                    if (skill.z == 1)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 2)
-                    {
-                        //Transform p = GameObject.Find("Skeleton").transform;
-                        Instantiate(bubbleBurst, skillAssignPoint.position, Quaternion.identity);
-                    }
-                    else if (skill.z == 3)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                }
-            }
-            else if (skill.x == 3)
-            {
-                if (skill.y == 1)
-                {
-                    if (skill.z == 1)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 2)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 3)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                }
-                else if (skill.y == 2)
-                {
-                    if (skill.z == 1)
-                    {
-                        Instantiate(heal, player.transform);
-                    }
-                    else if (skill.z == 2)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                    else if (skill.z == 3)
-                    {
-                        Debug.Log("施放失敗");
-                    }
-                }
-                else if (skill.y == 3)
-                {
-                    if (skill.z == 1)
-                    {
-                        //Transform p = GameObject.Find("Skeleton").transform;
-                        Instantiate(thunder, skillAssignPoint.position, Quaternion.identity);
-                    }
-                    else if (skill.z == 2)
-                        Debug.Log("施放失敗");
-                    }
-                /*
-                    else if (skill.z == 3)
-                    {
-                        for (int i = 0; i < 20; i++)
-                        {
-                            float n = Random.Range(0, 3.0f);
-                            Invoke("ThunderStorm", n);
-                        }
-
-                    }
-                */
-                }
-
-            PlayerSpelling.Reset();
         }
         else 
         {
-            Log.Text("null");
 
             if (index < 2)
             {
-                Instantiate(fireBall_Small, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+                Instantiate(NormalSkillCombo[0].skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
             }
             else if(index == 2) 
             {
-                Instantiate(fireBall_Large, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+                Instantiate(NormalSkillCombo[1].skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
             }
         }
 
-        for (int i = 0; i < allSkillCombo.Length; i++)
-        {
-            var playerCombo = Player.instance.skillTypes;
-            var skillCombo = allSkillCombo[i];
-
-            Log.Text(playerCombo.SequenceEqual(skillCombo.combo));
-            if (playerCombo.SequenceEqual(skillCombo.combo))
-            {
-                Log.Text($"{i}");
-                Instantiate(skillCombo.skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
-
-                PlayerSpelling.Reset();
-            }
-        }
     }
 }
