@@ -29,6 +29,7 @@ namespace Lodiya
 
             if (!inSpell && Input.GetKeyDown(KeyCode.Space))
             {
+                player.ani.SetTrigger("進入詠唱模式");
                 stateMachine.SwitchState(player.playerStage_1st); 
             }
         }

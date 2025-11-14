@@ -16,48 +16,27 @@ namespace Lodiya
 
             Debug.Log("進入施放階段");
             Debug.Log($"Spell: {spell}");
-
         }
 
         public override void Exit()
         {
             base.Exit();
             player.HideSkillAssignPoint();
+            ResetSkillRing();
         }
 
         public override void Update()
         {
             if (spell == new Vector3(1, 2, 2) || spell == new Vector3(1, 2, 3) || spell == new Vector3(2, 2, 3) || spell == new Vector3(2, 3, 2) || spell == new Vector3(3, 3, 1))
             {
-               player.ShowSkillAssignPoint();
+                player.ShowSkillAssignPoint();
             }
-
 
             base.Update();
 
-
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                /*
-                if (spell == new Vector3(1, 1, 1) || spell == new Vector3(1, 1, 2) || spell == new Vector3(1, 1, 3))
-                {
-                    player.ani.SetFloat("攻擊類型", 3);
-                    player.ani.SetTrigger("詠唱攻擊");
-                }
-                else if (spell == new Vector3(1, 2, 2) || spell == new Vector3(1, 2, 3) || spell == new Vector3(2, 2, 3) || spell == new Vector3(2, 3, 2) || spell == new Vector3(3, 3, 1))
-                {
-                    player.ani.SetFloat("攻擊類型", 4);
-                    player.ani.SetTrigger("詠唱攻擊");
-                }
-                else if (spell == new Vector3(3, 2, 1) || spell == new Vector3(3, 3, 3))
-                {
-                    player.ani.SetFloat("攻擊類型", 5);
-                    player.ani.SetTrigger("詠唱攻擊");
-                }
-                */
                 SkillSystem.instance.SkillCast(spell);
-                //skillSystem.SkillCast(spell);
-
                 stateMachine.SwitchState(player.playerStage_1st);
             }
         }

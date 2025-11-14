@@ -5,7 +5,6 @@ namespace Lodiya
     /// <summary>
     /// 玩家待機狀態 :屬於地面狀態
     /// </summary>
-    /// </summary>
     public class PlayerIdle : PlayerGround
     {
         public PlayerIdle(string _name, StateMachine _stateMachine, Player _player) : base(_name, _stateMachine, _player)

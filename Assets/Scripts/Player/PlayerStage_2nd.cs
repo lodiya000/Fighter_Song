@@ -36,33 +36,6 @@ namespace Lodiya
                     stateMachine.SwitchState(player.playerStage_3rd);
                 }
             }
-
-            /*
-            if (Input.GetKeyDown(skillKey1))
-            {
-                spell.y = 1;
-                s2 = player.s2_fire;
-                s2.Play();
-                Debug.Log($"s2: {s2}");
-                stateMachine.SwitchState(player.playerStage_3rd);
-            }
-            else if (Input.GetKeyDown(skillKey2))
-            {
-                spell.y = 2;
-                s2 = player.s2_wind;
-                s2.Play();
-                Debug.Log($"s2: {s2}");
-                stateMachine.SwitchState(player.playerStage_3rd);
-            }
-            else if (Input.GetKeyDown(skillKey3))
-            {
-                spell.y = 3;
-                s2 = player.s2_ice;
-                s2.Play();
-                Debug.Log($"s2: {s2}");
-                stateMachine.SwitchState(player.playerStage_3rd);
-            }
-            */
         }
     }
 }
