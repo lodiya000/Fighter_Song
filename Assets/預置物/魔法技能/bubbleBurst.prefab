@@ -4918,6 +4918,7 @@ GameObject:
   - component: {fileID: 9138615833766383659}
   - component: {fileID: 3741781551924747856}
   - component: {fileID: 5493212726594218234}
+  - component: {fileID: -2941065347858219484}
   m_Layer: 0
   m_Name: bubbleBurst
   m_TagString: Untagged
@@ -8820,7 +8821,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -9874,6 +9875,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-2941065347858219484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635755975399992398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f8c62fa5c7c46439d688bcd094f024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillObject
+  _damage: 20
 --- !u!1 &1907249281963014307
 GameObject:
   m_ObjectHideFlags: 0

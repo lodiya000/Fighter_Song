@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3581177739483332288}
   - component: {fileID: 7681432143553685253}
   - component: {fileID: 931673256945114631}
+  - component: {fileID: 8589946054962279375}
   m_Layer: 0
   m_Name: flame
   m_TagString: Untagged
@@ -3687,7 +3688,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -3864,7 +3865,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4904,6 +4905,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8589946054962279375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2233059962670917270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f8c62fa5c7c46439d688bcd094f024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillObject
+  _damage: 30
 --- !u!1 &3720947815426187244
 GameObject:
   m_ObjectHideFlags: 0

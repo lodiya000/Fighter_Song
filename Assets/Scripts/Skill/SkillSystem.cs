@@ -77,7 +77,7 @@ public class SkillSystem : MonoBehaviour
                 //Log.Text(playerCombo.SequenceEqual(skillCombo.combo));
                 if (playerCombo.SequenceEqual(skillCombo.combo))
                 {
-                    Log.Text($"{i}");
+                    //Log.Text($"{i}");
                     Instantiate(skillCombo.skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
                 }
             }

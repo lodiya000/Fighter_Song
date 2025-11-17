@@ -4941,6 +4941,7 @@ GameObject:
   - component: {fileID: 2906837963898085566}
   - component: {fileID: 3064164460776122006}
   - component: {fileID: 4099420151682486618}
+  - component: {fileID: 1836744111590814139}
   m_Layer: 0
   m_Name: heal
   m_TagString: Untagged
@@ -8629,7 +8630,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -8806,7 +8807,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -9846,6 +9847,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1836744111590814139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762293591843674241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f8c62fa5c7c46439d688bcd094f024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillObject
+  _damage: 0
 --- !u!1 &3687402203210221801
 GameObject:
   m_ObjectHideFlags: 0

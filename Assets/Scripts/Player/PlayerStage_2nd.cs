@@ -31,7 +31,8 @@ namespace Lodiya
 
                 if (Input.GetKeyDown(siklls[index]))
                 {
-                    player.skillRing2[index].Play();
+                    int iD = SkillSlotManager.instance.runeID[index];
+                    player.skillRing2[iD].Play();
                     player.UpddateSkillCombo(1, SkillSlotManager.instance.skillTypesOrder[index]);
                     stateMachine.SwitchState(player.playerStage_3rd);
                 }

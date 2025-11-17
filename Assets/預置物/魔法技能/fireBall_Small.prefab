@@ -9896,7 +9896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f8c62fa5c7c46439d688bcd094f024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillObject
-  _damage: 30
+  _damage: 10
 --- !u!1 &6788513007699777693
 GameObject:
   m_ObjectHideFlags: 0

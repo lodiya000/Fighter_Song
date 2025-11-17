@@ -9,6 +9,11 @@ namespace Lodiya
     /// </summary>
     public class SkillSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        [field: SerializeField, Header("符文")]
+        public DataRune dataRune { get; private set; }
+        [field: SerializeField, Header("技能編號")]
+        public int slotId { get; private set; }
+
         private Vector3 originalPoint;
         private Transform traCanvas;
         private Transform parent;
@@ -42,22 +47,33 @@ namespace Lodiya
 
             //若放開的地點有另一個技能插槽，則交換
             var target = eventData.pointerCurrentRaycast.gameObject;
-
             if (target != null && target.TryGetComponent(out SkillSlot targetSkillSlot))
             {
                 var speite = imgSkill.sprite;
                 var color = imgSkill.color;
+                var tempRune = dataRune;
 
                 imgSkill.sprite = targetSkillSlot.sprSkill;
                 targetSkillSlot.imgSkill.sprite = speite;
+
                 imgSkill.color = targetSkillSlot.colorSkill;
                 targetSkillSlot.imgSkill.color = color;
+
+                dataRune = targetSkillSlot.dataRune;
+                targetSkillSlot.UpdateRune(tempRune);
+
+                SkillSlotManager.instance.UpdateSkillRune(slotId, targetSkillSlot.slotId);
             }
 
             transform.SetParent(parent);
             transform.SetAsFirstSibling();
             imgSkill.raycastTarget = true;
             transform.localPosition = originalPoint;
+        }
+
+        public void UpdateRune(DataRune newRune)
+        {
+            dataRune = newRune;
         }
     }
 }

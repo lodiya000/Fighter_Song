@@ -45,4 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThunderStorm
   thunder: {fileID: 7746951641678701324, guid: b57450e75586c2347bebe908f719591e, type: 3}
-  player: {fileID: 0}
