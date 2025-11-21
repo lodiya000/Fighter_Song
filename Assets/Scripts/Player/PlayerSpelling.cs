@@ -26,7 +26,11 @@ namespace Lodiya
         public override void Exit()
         {
             base.Exit();
+            isClick = false;
         }
+
+        private bool isClick;
+        private float clickTime;
 
         public override void Update()
         {
@@ -34,17 +38,21 @@ namespace Lodiya
 
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                Reset();           
+                Reset();
                 stateMachine.SwitchState(player.playerStage_1st);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !isClick)
             {
+                clickTime = Time.time;
+                isClick = true;
                 inSpell = false;
                 player.ani.SetBool("詠唱模式", false);
                 Reset();
-                stateMachine.SwitchState(player.playerIdle);
             }
+
+            if (isClick && Time.time >= clickTime + 1.2f)
+                stateMachine.SwitchState(player.playerIdle);
         }
 
         protected void Reset()

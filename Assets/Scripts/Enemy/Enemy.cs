@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-
 namespace Lodiya
 {
     public class Enemy : Character
@@ -13,6 +12,12 @@ namespace Lodiya
         public EnemyAttack enemyAttack { get; private set; }
         public EnemyDead enemyDead { get; private set; }
         #endregion
+
+        public void UpdateHp( float hpNew)
+        {
+            hpMax = hpNew;
+            hp = hpMax;
+        }
 
         #region 資料
         [field: SerializeField, Tooltip("待機時間範圍")]
@@ -85,7 +90,7 @@ namespace Lodiya
             enemyAttack = new EnemyAttack($"{name}攻擊", stateMachine, this);
             enemyDead = new EnemyDead($"{name}死亡", stateMachine, this);
 
-            stateMachine.Initialize(enemyIdle);
+            stateMachine.Initialize(enemyTrack);
             #endregion
         }
 
