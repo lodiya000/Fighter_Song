@@ -73,9 +73,10 @@ namespace Lodiya
         private LayerMask skillAssignPointLayer;
         #endregion
 
-        // public SkillCombo skillCombo { get; private set; }
         [field: SerializeField]
         public SkillType[] skillTypes { get; private set; }
+        [SerializeField]
+        private GameObject goCamera;
 
         private void OnDrawGizmos()
         {
@@ -95,6 +96,9 @@ namespace Lodiya
         protected override void Awake()
         {
             base.Awake();
+
+            // 隱藏滑鼠
+            GameManager.instance.SetCursorVisible(false);
 
             // skillCombo = new SkillCombo();
             skillTypes = new SkillType[3];
@@ -119,6 +123,7 @@ namespace Lodiya
         protected override void Update()
         {
             base.Update();
+            ShowCursor();
         }
 
         /// <summary>
@@ -181,6 +186,17 @@ namespace Lodiya
         public void Splling(string skil)
         {
 
+        }
+
+        /// <summary>
+        /// 顯示滑鼠
+        /// </summary>
+        private void ShowCursor()
+        {
+            var leftAlt = Input.GetKey(KeyCode.LeftAlt);
+            // 同步虛擬攝影機顯示設定 SetActive(布林值)
+            goCamera.SetActive(!leftAlt);
+            GameManager.instance.SetCursorVisible(leftAlt);
         }
 
         /// <summary>

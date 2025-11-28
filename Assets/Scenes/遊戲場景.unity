@@ -22189,6 +22189,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 119
   <skillTypes>k__BackingField: 
+  goCamera: {fileID: 144926139}
 --- !u!1001 &790753106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23761,6 +23762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.WaveManager
   dataWaves:
   - {fileID: 11400000, guid: 13f2e312d0480b84fba3451fa3ece670, type: 2}
+  - {fileID: 11400000, guid: 9bd3e8e618f17924a82725dc89e84321, type: 2}
 --- !u!4 &1156012250
 Transform:
   m_ObjectHideFlags: 0

@@ -125,6 +125,7 @@ namespace Lodiya
         {
             base.Dead();
             stateMachine.SwitchState(enemyDead);
+            WaveManager.instance.EnemyDead();
         }
     }
 }
