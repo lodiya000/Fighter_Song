@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Lodiya;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -46,7 +47,7 @@ public class SkillSystem : MonoBehaviour
             var playerCombo = Player.instance.skillTypes;
             var skillCombo = allSkillCombo[i];
 
-            Log.Text(playerCombo.SequenceEqual(skillCombo.combo));  
+            //Log.Text(playerCombo.SequenceEqual(skillCombo.combo));  
             if (playerCombo.SequenceEqual(skillCombo.combo))
             {
             Log.Text($"{i}");
@@ -65,8 +66,6 @@ public class SkillSystem : MonoBehaviour
     /// <param name="index">基礎攻擊段數 0左手 1右手 2雙手</param>
     public void SpawnSkillAttatk(int index)
     {
-        Log.Text("skill");
-
         if (Player.instance.ani.GetBool("詠唱模式"))
         {
             for (int i = 0; i < allSkillCombo.Length; i++)
@@ -77,23 +76,48 @@ public class SkillSystem : MonoBehaviour
                 //Log.Text(playerCombo.SequenceEqual(skillCombo.combo));
                 if (playerCombo.SequenceEqual(skillCombo.combo))
                 {
-                    //Log.Text($"{i}");
-                    Instantiate(skillCombo.skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+                    if(skillCombo.skillPoint == SkillPoint.Player)
+                        Instantiate(skillCombo.skillPrefab, player.position, player.rotation);
+                    else if(skillCombo.skillPoint == SkillPoint.SkillAssign)
+                        Instantiate(skillCombo.skillPrefab, skillAssignPoint.position, skillAssignPoint.rotation);
+                    else if (skillCombo.skillPoint == SkillPoint.Hand)
+                        Instantiate(skillCombo.skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
+
                 }
             }
         }
         else 
         {
-
             if (index < 2)
             {
+                Debug.Log("1");
                 Instantiate(NormalSkillCombo[0].skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
             }
             else if(index == 2) 
             {
+                Debug.Log("2");
                 Instantiate(NormalSkillCombo[1].skillPrefab, baseAttatkPoint[index].position, baseAttatkPoint[index].rotation);
             }
         }
 
+    }
+
+    public bool SkillAssignCheak()
+    {
+        bool isSkillAssign = false;
+
+        if(isSkillAssign != true)
+        {
+            for (int i = 0; i < allSkillCombo.Length; i++)
+            {
+                var playerCombo = Player.instance.skillTypes;
+                var skillCombo = allSkillCombo[i];
+
+                if (playerCombo.SequenceEqual(skillCombo.combo))
+                    isSkillAssign = true;
+            }
+        }    
+
+        return isSkillAssign;
     }
 }

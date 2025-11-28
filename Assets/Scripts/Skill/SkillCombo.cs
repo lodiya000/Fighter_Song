@@ -8,7 +8,10 @@ namespace Lodiya
         public SkillType[] skillTypes;
         public string skillName;
         public GameObject skillPrefab;
+        //技能施放的姿勢
         public int skillposture;
+        //技能施放的地點
+        public SkillPoint skillPoint;
 
         /// <summary>
         /// 技能組合

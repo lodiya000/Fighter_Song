@@ -32,7 +32,7 @@ namespace Lodiya
         public float attackCD { get; private set; } = 2.5f;
 
 
-        public float trackSpeed { get; private set; } = 3.5f;
+        public float trackSpeed { get; private set; } = 2.5f;
 
         [field: SerializeField]
         public Vector3 originalPosition { get; private set; }
@@ -59,7 +59,7 @@ namespace Lodiya
             enemyAttack = new EnemyAttack($"{name}攻擊", stateMachine, this);
             enemyDead = new EnemyDead($"{name}死亡", stateMachine, this);
 
-            stateMachine.Initialize(enemyIdle);
+            stateMachine.Initialize(enemyTrack);
             #endregion
         }
 
@@ -113,6 +113,14 @@ namespace Lodiya
         {
             base.Dead();
             stateMachine.SwitchState(enemyDead);
+
+            WaveManager.instance.EnemyDead();
+            Invoke("DestroyEnemy", 3);
+        }
+
+        protected void DestroyEnemy()
+        {
+            Destroy(this.gameObject);
         }
 
         private void OnParticleCollision(GameObject other)
@@ -122,5 +130,12 @@ namespace Lodiya
                 Damage(skillObject.damage);
             }
         }
+
+        public void UpdateHP(float hpNew)
+        {
+            hpMax = hpNew;
+            hp = hpMax;
+        }
+
     }
 }

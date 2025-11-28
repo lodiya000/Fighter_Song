@@ -8,11 +8,14 @@ namespace Lodiya
         {
         }
 
+        private bool isSkillAssign;
+
         public override void Enter()
         {
             base.Enter();
 
             skillSystem = GameObject.Find("技能管理器").GetComponent<SkillSystem>();
+            isSkillAssign = skillSystem.SkillAssignCheak();
 
             Debug.Log("進入施放階段");
             Debug.Log($"Spell: {spell}");
@@ -30,7 +33,7 @@ namespace Lodiya
 
         public override void Update()
         {
-            if (spell == new Vector3(1, 2, 2) || spell == new Vector3(1, 2, 3) || spell == new Vector3(2, 2, 3) || spell == new Vector3(2, 3, 2) || spell == new Vector3(3, 3, 1))
+            if (isSkillAssign)
             {
                player.ShowSkillAssignPoint();
             }

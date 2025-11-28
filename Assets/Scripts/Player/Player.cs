@@ -38,6 +38,8 @@ namespace Lodiya
         
 
         private Transform traCamera;
+        [SerializeField]
+        private GameObject cam;
 
         #region 狀態機與狀態
         public PlayerIdle playerIdle { get; private set; }
@@ -113,6 +115,9 @@ namespace Lodiya
         {
             base.Awake();
 
+            GameManager.instance.SetCursorVisible( false );
+            cam.SetActive( true );
+
             #region 實例化
             playerIdle = new PlayerIdle($"{name}待機", stateMachine, this);
             playerWalk = new PlayerWalk($"{name}走路", stateMachine, this);
@@ -148,7 +153,18 @@ namespace Lodiya
         protected override void Update()
         {
             base.Update();
+
+            SetCursor();
             //Log.Text(IsGroung());
+        }
+
+        public void SetCursor()
+        {
+            var leftAlt = Input.GetKey(KeyCode.LeftAlt);
+ 
+            GameManager.instance.SetCursorVisible(leftAlt);
+            cam.SetActive(!leftAlt);
+
         }
 
         public bool IsGroung()

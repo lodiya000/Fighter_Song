@@ -9,8 +9,8 @@ namespace Lodiya
         [field: SerializeField, Range(0, 5)]
         public float walkSpeed { get; private set; } = 2;
         [field: SerializeField, Range(100, 1000)]
-        public float hpMax { get; private set; } = 100;
-        public float hp {  get; private set; }
+        public float hpMax { get; protected set; } = 100;
+        public float hp {  get; protected set; }
 
         #region 狀態機與狀態
         public StateMachine stateMachine { get; private set; }

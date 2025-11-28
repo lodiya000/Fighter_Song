@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a27a9c9dfa251848b2b61009f85afa8, type: 3}
-  m_Name: Flame
+  m_Name: FireBall_Middle
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillCombo
-  skillTypes: 010000000200000002000000
-  skillName: "\u711A\u71D2"
-  skillPrefab: {fileID: 2233059962670917270, guid: 033b472f8079ece4bb8ff49bc36c54d8, type: 3}
-  skillposture: 4
+  skillTypes: 010000000100000002000000
+  skillName: "\u4E2D\u706B\u7403"
+  skillPrefab: {fileID: 6839782607452383445, guid: ee6157894ccd32c43a410a83a5fe8811, type: 3}
+  skillposture: 3
+  skillPoint: 2

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a27a9c9dfa251848b2b61009f85afa8, type: 3}
-  m_Name: FireBall_Middle
+  m_Name: BubbleBurst
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillCombo
-  skillTypes: 010000000100000002000000
-  skillName: "\u4E2D\u706B\u7403"
-  skillPrefab: {fileID: 6839782607452383445, guid: ee6157894ccd32c43a410a83a5fe8811, type: 3}
-  skillposture: 3
+  skillTypes: 020000000300000002000000
+  skillName: "\u6CE1\u6CAB\u7206\u7834"
+  skillPrefab: {fileID: 635755975399992398, guid: e0bcb5456a8b6dd4484bb0f7b4a2edca, type: 3}
+  skillposture: 4
+  skillPoint: 3

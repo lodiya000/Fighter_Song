@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a27a9c9dfa251848b2b61009f85afa8, type: 3}
-  m_Name: ThunderStorm
+  m_Name: FireBall_small
   m_EditorClassIdentifier: Assembly-CSharp::Lodiya.SkillCombo
-  skillTypes: 030000000300000003000000
-  skillName: "\u96F7\u96FB\u98A8\u66B4"
-  skillPrefab: {fileID: 6376070463363195279, guid: 19bf6cd7e744cb54281a197d0afc7abc, type: 3}
-  skillposture: 5
+  skillTypes: 010000000100000001000000
+  skillName: "\u5C0F\u706B\u7403"
+  skillPrefab: {fileID: 4268378883312040066, guid: 9e49d73d01cdc2844a5522fa8cea680c, type: 3}
+  skillposture: 3
+  skillPoint: 2

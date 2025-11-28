@@ -44,7 +44,6 @@ namespace Lodiya
 
         private void Awake()
         {
-            //測試符文順序 火 水 風
             _skillTypesOrder = new SkillType[3]
                 {
                     skillSlot1.dataRune.skillType,
@@ -74,7 +73,6 @@ namespace Lodiya
 
             runeID[first] = runeID[second];
             runeID[second] = id;
-
         }
     }
 }
